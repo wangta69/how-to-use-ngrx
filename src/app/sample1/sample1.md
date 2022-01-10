@@ -1,11 +1,12 @@
+https://ngrx.io/guide/store/walkthrough
 ```
 npm i @ngrx/store
 ```
 
 app.module.ts(imports)
 ```
-import { booksReducer } from './state/books.reducer';
-import { collectionReducer } from './state/collection.reducer';
+import { booksReducer } from './sample1/state/books.reducer';
+import { collectionReducer } from './sample1/state/collection.reducer';
 import { StoreModule } from '@ngrx/store';
 ```
 app.module.ts (StoreModule)

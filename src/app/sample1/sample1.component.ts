@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { selectBookCollection, selectBooks } from './books.selectors';
+import { selectBookCollection, selectBooks } from './state/books.selectors';
 import {
   retrievedBookList,
   addBook,
   removeBook,
-} from './books.actions';
-import { GoogleBooksService } from './books.service';
+} from './state/books.actions';
+import { GoogleBooksService } from './book-list/books.service';
 
 @Component({
   selector: 'app-root',

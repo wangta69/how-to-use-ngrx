@@ -1,0 +1,53 @@
+
+<div class="cards-holder">
+        <app-card
+          *ngFor="let card of (cards$ | async);"
+          [info]="card"
+          (flipped)="actions.flipCard($event)"
+        ></app-card>
+
+</div>
+
+<!-- <div id="wrapper">
+    <app-header></app-header>
+    <div class="container">
+        <div class="contents game">
+
+            <div class="dashboard">
+                <div class="remains">
+                    <span class="title">{{ 'game.remains' | translate }}</span>
+                    <span class="text">{{remains$ | async}}</span>
+                </div>
+                <div class="score">
+                    <span class="title">{{ 'game.score' | translate }}</span>
+                    <span class="text">{{score$ | async}}</span>
+                </div>
+                <div class="choose-cards" *ngIf="selectedCardSetEnable">
+                    <span class="text">
+                        <mat-form-field floatLabel="never">
+                          <mat-select [value]="selectedCardSet" (selectionChange)="cardSetChange($event)">
+                            <mat-option *ngFor="let card of cards" [value]="card.value">
+                              {{card.viewValue}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                    </span>
+                </div>
+            </div>
+            <div class="gameboard">
+
+                <div class="front-screen" [ngStyle]="{'display': hideFrontScreen ? 'none' : '' }" >
+                    <mat-icon svgIcon="play" (click)="startGame()">Play</mat-icon>
+                </div>
+                <div class="count-screen" [ngStyle]="{'display': showCountScreen ? '' : 'none' }" >
+                    <div class="counter" [@countTrigger]="countState">
+                        <span>{{counterTimer}}</span>
+                    </div>
+                </div>
+                <app-chessboard></app-chessboard>
+            </div>
+            <app-gamelinks></app-gamelinks>
+        </div>
+    </div>
+</div> <!-- #wrapper --> -->

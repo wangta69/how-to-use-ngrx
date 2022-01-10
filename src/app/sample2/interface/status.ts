@@ -1,0 +1,8 @@
+export enum STATUS {
+  READY,
+  PLAYING,
+  PASS,
+  FAIL,
+  FLIPALLOPEN,
+  FLIPALLCLOSE
+}
