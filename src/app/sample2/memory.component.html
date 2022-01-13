@@ -1,12 +1,15 @@
 
+
 <div class="cards-holder">
         <app-card
-          *ngFor="let card of (cards$ | async);"
+          *ngFor="let card of (cards$ | async); trackBy: trackByCards"
           [info]="card"
-          (flipped)="actions.flipCard($event)"
+          (flipped)="flipCard($event)"
         ></app-card>
+        </div>
+        <!-- (flipped)="actions.flipCard($event)" -->
 
-</div>
+
 
 <!-- <div id="wrapper">
     <app-header></app-header>
@@ -50,4 +53,4 @@
             <app-gamelinks></app-gamelinks>
         </div>
     </div>
-</div> <!-- #wrapper --> -->
+</div> <!-- #wrapper -->

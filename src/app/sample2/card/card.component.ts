@@ -1,9 +1,10 @@
 import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
-// import { backCards } from '../../store/model/card';
+import { backCards } from '../model/card';
 // import { ICard, STATUS } from '../../store/interface';
+import { ICard, STATUS } from '../interface';
 // import { select } from '@angular-redux/store';
 // import { Observable } from 'rxjs';
-// import { Haptics } from '@capacitor/haptics';
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -11,12 +12,12 @@ import { Component, Input, Output, EventEmitter, HostListener } from '@angular/c
 })
 
 export class CardComponent {
-  // @Input() info!: ICard;
+  @Input() info: ICard;
   // @select() status$!: Observable<number>;
 
   @Output() flipped = new EventEmitter();
 
-  // backCard: ICard;
+  backCard: ICard;
   cardStyles = {'min-width': '100px', 'min-height': '121px'};
 
   cardFlipped: boolean = false;
@@ -27,19 +28,9 @@ export class CardComponent {
   constructor(
       // private vibration: Vibration
   ) {
-    // this.backCard = backCards();
+    this.backCard = backCards();
     this.cardResize();
 
-    // 초기 시작시 모든 카드를 오픈 한다.
-    // this.status$.subscribe((status: number) => {
-    //     if (status === STATUS.FLIPALLOPEN) {
-    //         this.cardFlipped = true;
-    //     }
-    //
-    //     if (status === STATUS.FLIPALLCLOSE) {
-    //         this.cardFlipped = false;
-    //     }
-    // });
   }
 
     private cardResize() {
@@ -66,11 +57,15 @@ export class CardComponent {
         this.cardStyles = {'min-width': cardWidth + 'px', 'min-height': cardHeight + 'px'};
   }
 
-    // public flip(info: ICard) {
-    //     Haptics.vibrate({duration: 20});
-    //     if (info.flipped) {
-    //         return;
-    //     }
-    //     this.flipped.emit(info);
-    // }
+    public flip(card: ICard) {
+        console.log('=======================================');
+        console.log('card.component >> flip >> card:', card)
+
+        if (card.flipped) {
+            return;
+        }
+
+        // card.flipped = true;
+        this.flipped.emit(card);
+    }
 }

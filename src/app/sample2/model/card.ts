@@ -70,7 +70,7 @@ export function getGameCards(): Array<ICard>  {
     const final = fillArray(choosed, selOption[1]); // give the same result as above;
     const cardset = localStorage.getItem('selectedCardSet') ? localStorage.getItem('selectedCardSet') : '1';
     const finalMap =  final.map((name, i) => {
-        const url =  '/assets/characters/' + cardset + '/' + name + '.png';
+        const url =  '/assets/images/cards/' + name + '.png';
         return {
             id: i,
             name,

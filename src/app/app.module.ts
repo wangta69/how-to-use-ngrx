@@ -17,6 +17,7 @@ import { collectionReducer } from './sample1/state/collection.reducer';
 // Sample 2  관련
 import { MemoryComponent } from './sample2/memory.component';
 import { CardComponent } from './sample2/card/card.component';
+import { cardsReducer } from './sample2/reducer/card.reducer';
 
 
 @NgModule({
@@ -33,7 +34,11 @@ import { CardComponent } from './sample2/card/card.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    StoreModule.forRoot({
+        books: booksReducer,
+        collection: collectionReducer,
+        cards: cardsReducer
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
